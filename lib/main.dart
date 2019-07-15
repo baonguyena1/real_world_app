@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:real_world_app/controllers/detail_page.dart';
 import './views/video_cell.dart';
 
 void main() => runApp(RealWorldApp());
@@ -29,6 +29,15 @@ class _RealWoldState extends State<RealWorldApp> {
         _isLoading = false;
       });
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _isLoading = true;
+    });
+    _fetchData();
   }
 
   @override
@@ -64,7 +73,7 @@ class _RealWoldState extends State<RealWorldApp> {
                         print('Tapped at $i');
                         Navigator.push(context, 
                           new MaterialPageRoute(
-                            builder: (context) => new DetailPage()
+                            builder: (context) => new DetailPage(video)
                           )
                         );
                       }
@@ -74,21 +83,6 @@ class _RealWoldState extends State<RealWorldApp> {
         ),
       ),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class DetailPage extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Detail Page'),
-      ),
-      body: new Center(
-        child: new Text('Detail page'),
-      ),
     );
   }
 }
