@@ -3,8 +3,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:real_world_app/controllers/detail_page.dart';
 import './views/video_cell.dart';
+import 'package:real_world_app/controllers/main_page.dart';
 
-void main() => runApp(RealWorldApp());
+void main() => runApp(MainPage());
 
 class RealWorldApp extends StatefulWidget {
   @override
